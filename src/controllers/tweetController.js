@@ -22,11 +22,11 @@ export const createTweet = async (req, res) => {
         })
 
     } catch (error) {
-        return errorResponse(error);
+        return errorResponse(error,res);
     }
 }
 
-export const getTweets = async () => {
+export const getTweets = async (req, res) => { //this all is units in unit testing
     try {
         const response = await getTweetService();
 
@@ -36,7 +36,7 @@ export const getTweets = async () => {
             message: 'tweet fetch successfully'
         }); 
     } catch (error) {
-        return errorResponse(error);
+        return errorResponse(error, res);
     }
 }
 
@@ -50,7 +50,7 @@ export const getTweetById = async (req, res) => {
             message: 'tweet fetch successfully'
         }); 
     } catch (error) {
-        return errorResponse(error);
+        return errorResponse(error,res);
     }
 }
 
@@ -63,7 +63,7 @@ export const deleteTweet = async (req, res) => {
             data: response
         })
     } catch (error) {
-        return errorResponse(error);
+        return errorResponse(error,res);
     }
 }
 
@@ -76,6 +76,6 @@ export const updateTweet = async (req, res) => {
             data: response
         })
     } catch (error) {
-        return errorResponse(error);
+        return errorResponse(error,res);
     }
 }
